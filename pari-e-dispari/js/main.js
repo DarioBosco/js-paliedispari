@@ -3,8 +3,8 @@ TODO:
 //L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
 //Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
 //Sommiamo i due numeri
-Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
-Dichiariamo chi ha vinto.
+//Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+//Dichiariamo chi ha vinto.
 */
 
 var userChoice;
@@ -28,5 +28,23 @@ function getRandomInt(min, max) {
 
 /* Richiamo la funzione appena creata assegnadone il valore a computerNumber */
 computerNumber = getRandomInt(1, 5);
+
 /* Riassegno a sumResult la somma dei numeri dell'utente e del PC */
 sumResult = userNumber + computerNumber;
+
+/* Funzione per capire se un numero e' pari o dispari. Sela funzione ritorna true, il numero e' pari. Se ritorna false, il numero e' dispari. */
+function isEvenNumber(a, b) {
+	var sum = a + b;
+	let result = false;
+	if (sum % 2 == 0) {
+		result = true;
+	}
+	return result;
+}
+
+/* Stabilisco il vincitore in base alla scelta e ad il risultato */
+if ((userChoice == 'P' && isEvenNumber(computerNumber, userNumber) == true) || (userChoice == 'D' && isEvenNumber(computerNumber, userNumber) == false)) {
+	console.log('Il giocatore vince');
+} else {
+	console.log('Il computer vince');
+}
